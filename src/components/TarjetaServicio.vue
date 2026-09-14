@@ -2,6 +2,8 @@
 defineProps({
   servicio: { type: Object, required: true }
 })
+
+const emit = defineEmits(['seleccionar'])
 </script>
 
 <template>
@@ -12,5 +14,8 @@ defineProps({
     <p class="precio">${{ servicio.precio.toLocaleString('es-CL') }}</p>
     <p v-if="servicio.disponible" class="disponible">Disponible</p>
     <p v-else class="no-disponible">No disponible</p>
+    <button v-show="servicio.disponible" @click="emit('seleccionar', servicio)">
+      Solicitar información
+    </button>
   </div>
 </template>
