@@ -34,3 +34,8 @@ Se implementó el formulario en Contacto.vue con los campos nombre, correo, tel�
 La función validar() revisa que nombre, teléfono y mensaje no estén vacíos, y que el correo contenga un @. Si existen errores, se listan con v-for dentro de un bloque v-if="errores.length > 0". Si los datos son válidos, se marca enviado = true y se muestra un resumen de la solicitud con v-if="enviado".
 
 El campo "Servicio de interés" se relaciona con el catálogo: si el usuario seleccionó un servicio en la vista Servicios (mediante el emit seleccionar, guardado en state.servicioInteres), el formulario lo precompleta automáticamente en el <select>, aunque el usuario puede cambiarlo si lo desea.
+
+## Parte 6 – Diseño y revisión final
+Se aplicó una identidad visual coherente en todo el sitio mediante style.css (CSS global, sin estilos embebidos en los componentes), usando variables CSS (:root) para mantener consistencia de colores: azul (--color-primario) como color corporativo y naranja (--color-acento) como color de énfasis en botones y elementos destacados.
+
+Se organizaron: navbar con estado activo de link (router-link-active), tarjetas de servicio con sombra y layout en grid responsivo (repeat(auto-fit, minmax(...))), formulario de contacto con espaciado uniforme, y un footer simple. Se agregó una regla @media básica para pantallas pequeñas.
