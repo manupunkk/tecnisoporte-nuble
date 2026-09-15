@@ -7,7 +7,6 @@ const { state } = useServiciosStore()
 
 const busqueda = ref('')
 const categoriaSeleccionada = ref('')
-const servicioSeleccionado = ref(null)
 
 const categorias = computed(() => {
   const set = new Set(state.servicios.map(s => s.categoria))
@@ -25,7 +24,7 @@ const serviciosFiltrados = computed(() => {
 })
 
 function onSeleccionar(servicio){
-  servicioSeleccionado.value = servicio
+  state.servicioInteres = servicio
 }
 </script>
 
@@ -41,9 +40,9 @@ function onSeleccionar(servicio){
       </select>
     </div>
 
-    <p v-if="servicioSeleccionado" class="seleccion-aviso">
-      Seleccionaste: <strong>{{ servicioSeleccionado.nombre }}</strong>
-    </p>
+     <p v-if="state.servicioInteres" class="seleccion-aviso">
+      Seleccionaste: <strong>{{ state.servicioInteres.nombre }}</strong>
+     </p>
 
     <div v-if="serviciosFiltrados.length > 0" class="grid-servicios">
       <TarjetaServicio

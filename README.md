@@ -20,3 +20,17 @@ Se creó src/stores/useServiciosStore.js, con un estado reactivo que contiene un
 Se creó el componente reutilizable TarjetaServicio.vue, que recibe un objeto servicio mediante props y se encarga de renderizar su información. Este mismo componente se usa 6 veces (una por servicio) dentro de Servicios.vue, evitando escribir HTML repetido para cada uno.
 
 En Servicios.vue se recorre state.servicios con v-for, pasando cada elemento al componente hijo mediante :servicio="s".
+
+## Parte 4 – Filtros, condicionales e interacción 
+Se agregó un buscador (v-model="busqueda") y un filtro por categoría (v-model="categoriaSeleccionada"). La lista visible se obtiene mediante el computed serviciosFiltrados, que combina ambos criterios sin modificar el arreglo original state.servicios.
+
+Se usó v-if/v-else para mostrar el grid de servicios o un mensaje de "sin resultados" según si serviciosFiltrados tiene elementos o no.
+
+Cada TarjetaServicio incorpora un botón "Solicitar información", visible con v-show solo si el servicio está disponible. Al hacer clic, el componente hijo emite el evento seleccionar (defineEmits) enviando el objeto del servicio completo. El componente padre (Servicios.vue) escucha ese evento con @seleccionar="onSeleccionar" y guarda el servicio elegido, mostrándolo visualmente arriba del catálogo.
+
+## Parte 5 – Formulario de contacto
+Se implementó el formulario en Contacto.vue con los campos nombre, correo, teléfono, servicio de interés y mensaje, todos ligados con v-model.
+
+La función validar() revisa que nombre, teléfono y mensaje no estén vacíos, y que el correo contenga un @. Si existen errores, se listan con v-for dentro de un bloque v-if="errores.length > 0". Si los datos son válidos, se marca enviado = true y se muestra un resumen de la solicitud con v-if="enviado".
+
+El campo "Servicio de interés" se relaciona con el catálogo: si el usuario seleccionó un servicio en la vista Servicios (mediante el emit seleccionar, guardado en state.servicioInteres), el formulario lo precompleta automáticamente en el <select>, aunque el usuario puede cambiarlo si lo desea.

@@ -8,7 +8,8 @@ const state = reactive({
     { id: 4, nombre: 'Mantención de equipos', categoria: 'Soporte', descripcion: 'Mantención preventiva de computadores y notebooks.', precio: 30000, disponible: true },
     { id: 5, nombre: 'Configuración WiFi empresarial', categoria: 'Infraestructura', descripcion: 'Configuración y optimización de redes inalámbricas.', precio: 90000, disponible: false },
     { id: 6, nombre: 'Recuperación de datos', categoria: 'Soporte', descripcion: 'Recuperación de archivos desde discos dañados o formateados.', precio: 60000, disponible: true },
-  ]
+  ],
+  servicioInteres: null
 })
 
 export function useServiciosStore(){
