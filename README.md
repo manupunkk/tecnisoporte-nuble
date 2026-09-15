@@ -54,3 +54,16 @@ Se probó ejecutando node server.js y visitando http://localhost:3000, confirman
 
 ## Parte 5 – Datos de servicios
 Se creó backend/data/servicios.js con un arreglo de 8 servicios de TecniSoporte Ñuble, cada uno con id, nombre, categoria, descripcion, precio y disponible. Se adaptaron los datos originales del catálogo del frontend (Actividad 8) y se agregaron 2 servicios adicionales ("Formateo e instalación de software" y "Capacitación en herramientas digitales"), incorporando además una nueva categoría propia: Capacitación. El arreglo se expone mediante module.exports para poder ser importado desde server.js.
+
+## Parte 6 – API de servicios
+
+Se creó la ruta GET /api/servicios en server.js, que responde con res.json(servicios), devolviendo el arreglo completo de servicios en formato JSON.
+
+Diferencia entre res.send() y res.json(): res.send() envía una respuesta genérica (texto plano, HTML, o buffer) sin dar formato especial al contenido, mientras que res.json() convierte automáticamente el dato (en este caso un arreglo de objetos JavaScript) a formato JSON y configura el encabezado Content-Type: application/json, dejándolo listo para ser consumido por un cliente como Vue mediante fetch.
+
+## Parte 7 – Consulta por ID
+Se agregó la ruta GET /api/servicios/:id, donde :id es un parámetro dinámico capturado a través de req.params. Como el valor llega siempre como texto, se convierte a número con Number() antes de compararlo con los id del arreglo mediante find().
+
+Si no se encuentra un servicio con ese id, el servidor responde con el código de estado 404 (Not Found), indicando que el recurso solicitado no existe, junto con un mensaje JSON descriptivo ({"mensaje": "Servicio no encontrado"}).
+
+Pruebas realizadas: /api/servicios/1 y /api/servicios/3 devuelven el servicio correspondiente; /api/servicios/999 devuelve el mensaje de error con código 404.
