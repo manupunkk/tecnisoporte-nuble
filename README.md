@@ -51,3 +51,6 @@ Se instaló Express con npm install express, framework para Node.js que permite 
 Se creó backend/server.js con un servidor Express básico. app.get('/', (req, res) => {...}) define una ruta GET para la raíz del servidor: req contiene la información de la solicitud entrante (headers, parámetros, etc.), res es el objeto usado para construir y enviar la respuesta al cliente (en este caso con res.send(), que envía texto plano). app.listen(PORT, callback) inicia el servidor en el puerto indicado y ejecuta la función de callback una vez que queda escuchando.
 
 Se probó ejecutando node server.js y visitando http://localhost:3000, confirmando que el servidor responde correctamente.
+
+## Parte 5 – Datos de servicios
+Se creó backend/data/servicios.js con un arreglo de 8 servicios de TecniSoporte Ñuble, cada uno con id, nombre, categoria, descripcion, precio y disponible. Se adaptaron los datos originales del catálogo del frontend (Actividad 8) y se agregaron 2 servicios adicionales ("Formateo e instalación de software" y "Capacitación en herramientas digitales"), incorporando además una nueva categoría propia: Capacitación. El arreglo se expone mediante module.exports para poder ser importado desde server.js.
