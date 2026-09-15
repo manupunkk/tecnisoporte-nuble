@@ -74,3 +74,6 @@ Se modificó la ruta GET /api/servicios para aceptar un parámetro opcional de c
 Diferencia entre req.params y req.query: req.params captura valores que forman parte de la ruta misma (ej. /api/servicios/:id → req.params.id), mientras que req.query captura valores enviados como parámetros opcionales después del signo ? en la URL (ej. /api/servicios?categoria=Soporte → req.query.categoria). Los params suelen usarse para identificar un recurso específico, y los query para filtros o búsquedas opcionales.
 
 Pruebas realizadas: sin filtro devuelve los 8 servicios; con ?categoria=Soporte y ?categoria=Infraestructura devuelve solo los servicios de esa categoría.
+
+## Parte 9 – Middleware JSON
+Se agregó app.use(express.json()), un middleware que permite a Express interpretar el cuerpo de solicitudes enviadas en formato JSON, convirtiéndolo en un objeto accesible mediante req.body. Será necesario en próximas actividades cuando se implementen rutas POST y PUT para crear o modificar servicios desde el frontend (por ejemplo, al conectar el formulario de contacto o un futuro panel de administración de servicios).
