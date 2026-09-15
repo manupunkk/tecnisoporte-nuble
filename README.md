@@ -39,3 +39,10 @@ El campo "Servicio de interés" se relaciona con el catálogo: si el usuario sel
 Se aplicó una identidad visual coherente en todo el sitio mediante style.css (CSS global, sin estilos embebidos en los componentes), usando variables CSS (:root) para mantener consistencia de colores: azul (--color-primario) como color corporativo y naranja (--color-acento) como color de énfasis en botones y elementos destacados.
 
 Se organizaron: navbar con estado activo de link (router-link-active), tarjetas de servicio con sombra y layout en grid responsivo (repeat(auto-fit, minmax(...))), formulario de contacto con espaciado uniforme, y un footer simple. Se agregó una regla @media básica para pantallas pequeñas.
+
+# Actividad 9
+
+## Parte 1 y 2 – Preparación del backend
+Se creó la carpeta backend/ en la raíz del proyecto, independiente del frontend de Vue (Actividad 8). Dentro de ella se ejecutó npm init -y, lo que generó un package.json propio para el backend, donde Node.js registra sus dependencias de forma separada del proyecto Vue.
+
+Se instaló Express con npm install express, framework para Node.js que permite crear servidores web, definir rutas y construir APIs de forma sencilla.
