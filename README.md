@@ -67,3 +67,10 @@ Se agregó la ruta GET /api/servicios/:id, donde :id es un parámetro dinámico 
 Si no se encuentra un servicio con ese id, el servidor responde con el código de estado 404 (Not Found), indicando que el recurso solicitado no existe, junto con un mensaje JSON descriptivo ({"mensaje": "Servicio no encontrado"}).
 
 Pruebas realizadas: /api/servicios/1 y /api/servicios/3 devuelven el servicio correspondiente; /api/servicios/999 devuelve el mensaje de error con código 404.
+
+## Parte 8 – Filtro por categoría
+Se modificó la ruta GET /api/servicios para aceptar un parámetro opcional de consulta (req.query.categoria). Si viene presente, se filtran los servicios comparando la categoría en minúsculas con toLowerCase(), para que la búsqueda no distinga mayúsculas/minúsculas. Si no viene, se devuelven todos los servicios.
+
+Diferencia entre req.params y req.query: req.params captura valores que forman parte de la ruta misma (ej. /api/servicios/:id → req.params.id), mientras que req.query captura valores enviados como parámetros opcionales después del signo ? en la URL (ej. /api/servicios?categoria=Soporte → req.query.categoria). Los params suelen usarse para identificar un recurso específico, y los query para filtros o búsquedas opcionales.
+
+Pruebas realizadas: sin filtro devuelve los 8 servicios; con ?categoria=Soporte y ?categoria=Infraestructura devuelve solo los servicios de esa categoría.

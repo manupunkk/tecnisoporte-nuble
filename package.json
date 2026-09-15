@@ -15,5 +15,18 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.8",
     "vite": "^8.3.0"
-  }
+  },
+  "description": "Se reutilizó la base técnica del proyecto desarrollado en la Actividad 7 (recepción de textos escolares), adaptándola al caso de una empresa de servicios: TecniSoporte Ñuble, dedicada a servicios tecnológicos (soporte computacional, redes y asesoría TI).",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manupunkk/tecnisoporte-nuble.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manupunkk/tecnisoporte-nuble/issues"
+  },
+  "homepage": "https://github.com/manupunkk/tecnisoporte-nuble#readme"
 }
